@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+<head>
+	<title>DIGITAL DATE</title>
+	<style>
+		
+		body{
+			height: 100vh;
+			color: #80ab78;
+			font-family: 'Arial';
+			align-items: center;
+			text-align: center;
+			justify-content: center;
+			justify-items: center;
+			display: flex;
+			flex-direction: column;
+		}
+
+		a{
+			text-decoration: none;
+		}
+
+		.container{
+			align-items: center;
+			text-align: center;
+			justify-content: center;
+			justify-items: center;
+			display: flex;
+			flex-direction: row;
+			margin: 0px;
+		}
+
+		.buttons{
+			display: flex;
+			flex-direction: row;
+		}
+
+		.buttons button{
+			margin: 10px;
+		}
+
+		#left{
+			height: 90%;
+			width: 300px;
+			padding: 20px;
+			border: 1px solid;
+			align-items: center;
+			text-align: center;
+			justify-content: center;
+			justify-items: center;
+			display: flex;
+			flex-direction: column;
+		}
+
+		#right{
+			height: 90%;
+			width: 300px;
+			padding: 20px;
+			border: 1px solid;
+			text-align: left;
+		}
+
+		#activity{
+			border: 1px solid;
+			width: 100%;
+		}
+
+		#message{
+			display: none;
+		}
+
+	</style>
+</head>
+<body>
+
+	<img style="width: 100px" src="yuh.jpeg"/>
+	<p>DIGITAL DATE :></p>
+
+	<div class=container>
+		<div id="left">
+			<div class="buttons">
+				<button onClick="generate()">GENERATE DATE ACTIVITY?</button>
+			</div>
+			<p id="activity"> ??? </p>
+		</div>
+		<div id="right">
+			<p>☆ activity checklist:</p>
+
+			<input type="checkbox" name="personality">
+			<label for="personality">Personality tests</label><br>
+			
+			<input type="checkbox" name="rungame">
+			<label for="rungame">Run game</label><br>
+	
+			<input type="checkbox" name="ratchelor">
+			<label for="ratchelor">Ratchelor</label><br>
+
+			<input type="checkbox" name="if">
+			<label for="if">Interactive fiction</label><br>
+
+			<input type="checkbox" name="geography">
+			<label for="geography">Geography Quiz</label><br>		
+
+			<input type="checkbox" name="screenshot">
+			<label for="screenshot">Screenshot story board</label><br>		
+
+			<input type="checkbox" name="quote">
+			<label for="quote">Quote conversations</label><br>		
+
+			<input type="checkbox" name="comment">
+			<label for="comment">Comment game</label><br>	
+
+			<p>(COMPLETE 3 FOR A PRIIZEEE HEHE)</p>
+			<p id="message"><a href="https://open.spotify.com/playlist/1UOjyER5JlGmaesXwzF0to?si=030a4a91051f4b5b">--> YOU WIN A PLAYLIST</a></p>		
+
+		</div>
+
+
+	</div>
+
+
+
+	<script>
+		
+		let checkboxes = document.querySelectorAll('input[type="checkbox"]');
+		let checkedCount = 0;
+
+		function handleCheckboxChange() {
+		    checkedCount = 0;
+		    checkboxes.forEach(function(checkbox) {
+		        if (checkbox.checked) {
+		            checkedCount++;
+		        }
+		    });
+
+		    if (checkedCount >= 3) {
+		        document.getElementById("message").style.display = "block";
+		    } else {
+		        document.getElementById("message").style.display = "none";
+		    }
+		}
+
+		checkboxes.forEach(function(checkbox) {
+		    checkbox.addEventListener('change', handleCheckboxChange);
+		});
+
+		function generate(){
+			fetch('list.txt')
+		    .then(response => response.text())
+		    .then(text => {
+		        // Split the text into an array of lines
+		        const lines = text.split('\n');
+		        
+		        // Select a random line
+		        const randomLine = lines[Math.floor(Math.random() * lines.length)];
+		        
+		        // Update the innerHTML of the <p> tag with the random line
+		        document.getElementById('activity').innerHTML = randomLine;
+		    })
+		    .catch(error => {
+		        console.error('Error fetching or reading file:', error);
+		    });
+		}
+
+	</script>
+
+</body>
+</html>

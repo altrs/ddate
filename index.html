@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+	<title>HI JAKE</title>
+	<style>
+
+		body{
+			margin: 0px;
+			padding: 0px;
+			font-family: "Arial", sans-serif;
+			color: #80ab78;
+			align-items: center;
+			text-align: center;
+			justify-content: center;
+			justify-items: center;
+			display: flex;
+		}
+
+		a{
+			text-decoration: none;
+		}
+
+		.container{
+			height: 100vh;
+			align-items: center;
+			text-align: center;
+			justify-content: center;
+			justify-items: center;
+			display: flex;
+			flex-direction: column;
+			margin: 0px;
+		}
+
+		.circles{
+			display: flex;
+			flex-direction: row;
+		}
+
+		.circle{
+			border: 1px solid;
+			width: 100px;
+			height: 100px;
+			border-radius: 50%;
+			margin: 10px;
+			cursor: pointer;
+			align-items: center;
+			text-align: center;
+			justify-content: center;
+			justify-items: center;
+			display: flex;
+		}
+
+		#button{
+			display: none;
+		}
+
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		<p style="background-color: #d8ffa6"><b><i>♡ a dateeee! ♡</i></b></p>
+		<p>fun fact: did you know my favorite number is 2</p><br>
+		<div class="circles">
+			<div class="circle" id="c1" onClick="cClick(this)"></div>
+			<div class="circle" id="c2" onClick="cClick(this)"></div>
+		</div>
+		<br><br><br>
+		<a href="platform.html"><button id="button">YAYY COMMENCE DATE</button></a>
+	</div>
+
+
+	<script>
+		let c1 = document.getElementById("c1");		
+		let c2 = document.getElementById("c2");
+
+		let c1b = false;
+		let c2b = false;
+
+		function cClick(element){
+		    let img = document.createElement('img');
+		    img.style.width = "50px";
+
+		    if(element.id == "c1"){
+		        c1.removeAttribute("onclick");
+		        c1.style.backgroundColor = "#f1b09a";
+		        img.src = "bear.png";
+		        c1b = true;
+		    } else if(element.id == "c2"){
+		        c2.removeAttribute("onclick");
+		        img.src = "bunny.png";
+		        c2.style.backgroundColor = "#f1b09a";
+		        c2b = true;
+		    }
+
+		    element.append(img);
+
+		    // Check if both elements have been clicked
+		    if(c1b && c2b){
+		        document.getElementById("button").style.display = "block";
+		    }
+		}
+
+	</script>
+
+</body>
+</html>
