@@ -54,19 +54,24 @@
 			display: none;
 		}
 
+		#button2{
+			display: none;
+		}
+
 	</style>
 </head>
 <body>
 
 	<div class="container">
 		<p style="background-color: #d8ffa6"><b><i>♡ a dateeee! ♡</i></b></p>
-		<p>fun fact: did you know my favorite number is 2</p><br>
+		<p id="text" >fun fact: did you know my favorite number is 2</p><br>
 		<div class="circles">
 			<div class="circle" id="c1" onClick="cClick(this)"></div>
 			<div class="circle" id="c2" onClick="cClick(this)"></div>
 		</div>
 		<br><br><br>
-		<a href="platform.html"><button id="button">YAYY COMMENCE DATE</button></a>
+		<a href="platform.html"><button id="button">da first digital date ♡</button></a><br>
+		<a href="platform2.html"><button id="button2">🍀 four month aniversary date :></button></a>
 	</div>
 
 
@@ -98,8 +103,19 @@
 		    // Check if both elements have been clicked
 		    if(c1b && c2b){
 		        document.getElementById("button").style.display = "block";
+		        document.getElementById("button2").style.display = "block";
 		    }
 		}
+
+
+		//TEXT
+		let text = document.getElementById("text");
+		let sentences = [ "fun fact: did you know my favorite number is 2",
+						  "\'I exist in two places. Here, and where you are\' -m.a.",
+						  "you are da bestest" ]
+
+		setInterval(function () {text.innerHTML = sentences[Math.floor(Math.random() * sentences.length)];}, 2250);
+
 
 	</script>
 
