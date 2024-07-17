@@ -6,7 +6,7 @@
 		
 		body{
 			height: 100vh;
-			color: #80ab78;
+			color: black;
 			font-family: 'Arial';
 			align-items: center;
 			text-align: center;
@@ -18,25 +18,28 @@
 
 		a{
 			text-decoration: none;
-			color: #80ab78;
 		}
 
 		.container{
 			align-items: center;
-			text-align: center;
+/*			text-align: center;*/
 			justify-content: center;
-			justify-items: center;
-			display: flex;
+/*			justify-items: center;*/
+/*			display: flex;*/
 			flex-direction: row;
 			margin: 0px;
 			border: 1px solid;
 			width: 600px;
-			height: 300px;
+			height: 500px;
 		}
 
 		.buttons{
 			display: flex;
 			flex-direction: row;
+		}
+
+		.char:hover{
+			border: 1px solid red;
 		}
 
 		.buttons button{
@@ -47,14 +50,60 @@
 			display: none;
 		}
 
+		.box{
+			border: 1px solid black;
+			margin: 50px;
+			height: 260px;
+			justify-items: center;
+			display: none;
+			flex-direction: column;
+			align-items: center;
+			text-align: center;
+			justify-content: center;
+		}
+
+		#default { display: block; } 
+
 	</style>
 </head>
 <body>
 
-	<p>CHOOSE YOUR FIGHTER</p>
+	<p><b><i>CHOOSE YOUR FIGHTER!!<i></b></p>
 
 	<div class=container>
-		<img style="width: 100px" src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.jellygummies.com%2Fgiphy-arcade-gifs&psig=AOvVaw1s_Po2nYVJbH4uxI1R5o1P&ust=1721241251897000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCJj8w7yZrIcDFQAAAAAdAAAAABAE"/>
+		<br><br><br>
+		<img class="char" onClick="changeFighter(1)" style="width: 100px" src="https://images.squarespace-cdn.com/content/v1/581499b8e58c627afce6221c/1581469800784-R0VYVH2YTVGAHIGSODUX/red-crumb-1.gif?format=500w"/>
+		<img class="char" onClick="changeFighter(2)" style="width: 100px" src="https://images.squarespace-cdn.com/content/v1/581499b8e58c627afce6221c/1581518467240-NM0E7UFDFYIXRM7WW4OS/blob-1.gif?format=500w"/>
+		<img class="char" onClick="changeFighter(3)" style="width: 100px" src="https://images.squarespace-cdn.com/content/v1/581499b8e58c627afce6221c/1581518551520-NWVYZ8M8UI23B0A0ZNPY/duck.gif?format=500w"/>
+		<img class="char" onClick="changeFighter(4)" style="width: 100px" src="https://images.squarespace-cdn.com/content/v1/581499b8e58c627afce6221c/1581465368653-2EX8SKAR8KHL4P3RCMB7/chubbyman-NEWEST0020-0040_1.gif?format=500w"/>
+		<img class="char" onClick="changeFighter(5)" style="width: 100px" src="https://images.squarespace-cdn.com/content/v1/581499b8e58c627afce6221c/1581469398389-GJ03KT8SVGGWEK2RBV58/jellyfish.gif?format=500w"/>
+
+		<div id="default" class="box" ><img style="width: 100%; height: 100%" src="dog.jpeg"/></div>
+
+		<div id="one" class="box">
+        <img style="width: 100px" src="cats/1.jpeg"/>
+        <p><b>LET'S RANK STUFF<br><a href="https://tiermaker.com/">https://tiermaker.com/</a></b></p>
+    </div>
+
+    <div id="two" class="box">
+        <img style="width: 100px" src="cats/4.jpeg"/>
+        <p><b>INTERACTIVE FICTION GAMES<br><a href="https://eblong.com/zarf/if.html">https://eblong.com/zarf/if.html</a></b></p>
+    </div>
+
+    <div id="three" class="box">
+        <img style="width: 75px" src="cats/3.jpeg"/>
+        <p><b>23 Questions I Ask Everybody I Meet<br>In Order To Decide If I Can Really Love Them</b><br><a href="https://medium.com/the-orange-blog/chuck-klostermanns-23-questions-16b5d7148ab0"> https://medium.com/the-orange-blog/chuck-klostermanns-23-questions-16b5d7148ab0</a></p>
+    </div>
+
+    <div id="four" class="box">
+        <img style="width: 100px" src="cats/5.jpeg"/>
+        <p><b>Personality characters drawing<br></b>Draaaawwinnngg</p>
+    </div>
+
+    <div id="five" class="box">
+        <img style="width: 100px" src="cats/2.jpeg"/>
+        <p><b>Cookbook Building XD<br></b>Let meh make a document hehehe</p>
+    </div>
 
 	</div>
 
@@ -101,6 +150,97 @@
 		        console.error('Error fetching or reading file:', error);
 		    });
 		}
+
+		//CHOOSE FIGHTER
+		let fighter = 0;
+
+		function changeFighter(x){
+			fighter = x;
+
+			if(fighter == 1){
+				console.log("hello");
+				document.getElementById("default").style.display = "none";
+				document.getElementById("one").style.display = "flex";
+				document.getElementById("two").style.display = "none";
+				document.getElementById("three").style.display = "none";
+				document.getElementById("four").style.display = "none";
+				document.getElementById("five").style.display = "none";
+			}
+			else if(fighter == 2){
+				document.getElementById("default").style.display = "none";
+				document.getElementById("one").style.display = "none";
+				document.getElementById("two").style.display = "flex";
+				document.getElementById("three").style.display = "none";
+				document.getElementById("four").style.display = "none";
+				document.getElementById("five").style.display = "none";
+			}
+			else if(fighter == 3){
+				document.getElementById("default").style.display = "none";
+				document.getElementById("one").style.display = "none";
+				document.getElementById("two").style.display = "none";
+				document.getElementById("three").style.display = "flex";
+				document.getElementById("four").style.display = "none";
+				document.getElementById("five").style.display = "none";
+			}
+			else if(fighter == 4){
+				document.getElementById("default").style.display = "none";
+				document.getElementById("one").style.display = "none";
+				document.getElementById("two").style.display = "none";
+				document.getElementById("three").style.display = "none";
+				document.getElementById("four").style.display = "flex";
+				document.getElementById("five").style.display = "none";
+			}
+			else if(fighter == 5){
+				document.getElementById("default").style.display = "none";
+				document.getElementById("one").style.display = "none";
+				document.getElementById("two").style.display = "none";
+				document.getElementById("three").style.display = "none";
+				document.getElementById("four").style.display = "none";
+				document.getElementById("five").style.display = "flex";
+			}
+			else{
+				document.getElementById("default").style.display = "flex";
+				document.getElementById("one").style.display = "none";
+				document.getElementById("two").style.display = "none";
+				document.getElementById("three").style.display = "none";
+				document.getElementById("four").style.display = "none";
+				document.getElementById("five").style.display = "none";
+			}
+		}
+
+
+		//questions
+		// let questions = [ 
+		// 	"Q1: Let us assume you met a rudimentary magician. Let us assume he can do five simple tricks he can pull a rabbit out of his hat, he can make a coin disappear, he can turn the ace of spades into the Joker card, and two others in a similar vein. There are his only tricks and he can’t learn any more; he can only do these five. HOWEVER, it turns out he’s doing these five tricks with real magic. It’s not an illusion; he can actually conjure the bunny out of the aether and he can move the coin through space. He’s legitimately magical, but extremely limited in scope and influence. Would this person be more impressive than Albert Einstein?",
+		// 	"Q2: Let us assume a fully grown, completely healthy Clydesdale horse has his hooves shackled to the ground while he head is held in place with thick rope. He is conscious and standing upright, but he is completely immobile. And let us assume that for some reason every political prisoner on earth (as cited by Amnesty International) will be released from captivity if you can kick this horse to death in less than twenty minutes. You are allowed to wear steel-toed boots. Would you attempt to do this?",
+		// 	"Q3: Let us assume there are two boxes on a table. In one box, there is a relatively normal turtle; in the other, Adolf Hitler’s skull. You have to select one of these items for your home. If you select the turtle, you cant give it away and you have to keep it alive for two years; if either of these parameters are not met, you will be fined $999 by the state. If you select Hitler’s skull, you are required to display it in a semi-prominent location in your living room for the same amount of time, although you will be paid a stipend of $120 per month for doing so. Display of the skull must be apolitical. Which option do you select?",
+		// 	"Q4: Genetic engineers at Johns Hopkins University have developed a so-called super gorilla. Though the animal cannot speak, it has a sign language lexicon of over twelve thousand words, and an IQ of almost 85, and most notably a vague sense of self-awareness. Oddly, the creature (who weighs seven hundred pounds) becomes fascinated by football. The gorilla aspires to play the game at its highest level and quickly develops the rudimentary skills of a defensive end. ESPN analyst Tom Jackson speculates that this gorilla would be borderline unblockable and would likely average six sacks a game (although Jackson concedes the beast might be susceptible to counters and misdirection plays). Meanwhile, the gorilla has made is clear he would never intentionally injure any opponent. You are commissioner of the NFL: Would you allow this gorilla to sign with the Oakland Raiders?",
+		// 	"Q5: You meet your soul mate. However, there is a catch: Every three years, someone will break both of your soul mates collarbones with a Crescent wrench, and there is only one way you can stop this from happening: You must swallow a pill that will make every song you hear for the rest of your life sound as if its being performed by the band Alice in Chains. When you hear Credence Clearwater Revival on the radio, it will sound (to your ears) like its being played by Alice in Chains. If you see Radiohead live, every one of the tunes will sound like its being covered by Alice in Chains. When you hear a commercial jingle on TV, it will sound like Alice in Chains; if you sing to yourself in the shower, your voice will sound like deceased Alice vocalist Layne Staley performing a cappella (but it will only sound this way to you). Would you swallow the pill?",
+		// 	"Q6: At long last, somebody invents the dream VCR. This machine allows you to tape an entire evenings worth of your own dreams, which you can then watch at your leisure. However, the inventor of the dream VCR will only allow you to use this device if you agree to a strange caveat: When you watch your dreams, you must do so with your family and your closest friends in the same room. They get to watch your dreams along with you. And if you don’t agree to this, you can’t use the dream VCR. Would you still do this?",
+		// 	"Q7: Defying all expectation, a group of Scottish marine biologists capture a live Loch Ness Monster. In an almost unbelievable coincidence, a bear hunter shoots a Sasquatch in the thigh, thereby allowing zoologists to take the furry monster into captivity. These events happen on the same afternoon. That evening, the president announces he may have thyroid cancer and will undergo a biopsy later that week. You are the front-page editor of The New York Times: What do you play as the biggest story?",
+		// 	"Q8: You meet the perfect person. Romantically, this person is ideal; You find them physically attractive, intellectually stimulating, consistently funny, and deeply compassionate. However, they have one quirk: This individual is obsessed with Jim Henson’s gothic puppet fantasy The Dark Crystal. Beyond watching it on DVD at least once a month, he/she peppers casual conversation with Dark Crystal references, uses Dark Crystal analogies to explain everyday events, and occasionally likes to talk intensely about the films deeper philosophy. Would this be enough to stop you from marrying this individual?",
+		// 	"Q9: A novel titled Interior Mirror is released to mammoth commercial success (despite middling reviews). However, a curious social trend emerges: Though no one can prove a direct scientific link, it appears that almost 30 percent of the people who read this book immediately become homosexual. Many of the newfound homosexuals credit the book for helping them reach this conclusion about their orientation, despite the fact that Interior Mirror is ostensibly a crime novel with no homoerotic content (and was written by a straight man). Would this phenomenon increase (or decrease) the likelihood of you reading this book?",
+		// 	"Q10: This is the opening line of Jay McInerneys Bright Lights, Big City: “You are not the kind of guy who would be in a place like this at this time of the morning”. Think about that line in the context of the novel (assuming youre read it). Now go to your CD collection and find Heart’s Little Queen album (assuming you own it). Listen to the opening riff to “Barracuda”. Which of these two introductions is a higher form of art?",
+		// 	"Q11: You are watching a movie in a crowded theater. Though the plot is mediocre, you find yourself dazzled by the special effects. But with twenty minutes left in the film, you are struck with an undeniable feeling of doom: You are suddenly certain your mother has just died. There is no logical reason for this to be true, but you are certain of it. You are overtaken with the irrational metaphysical sense that somewhere your mom has just perished. But this is only an intuitive, amorphous feeling; there is no evidence for this, and your mother has not been ill. Would you immediately exit the theater, or would you finish watching the movie?",
+		// 	"Q12: You meet a wizard in downtown Chicago. The wizard tells you he can make you more attractive if you pay him money. When you ask how this process works, the wizard points to a random person on the street. You look at this random person. The wizard says. I will now make them a dollar more attractive. He waves his magic wand. Ostensibly, this person does not change at all; as far as you can tell, nothing is different. But somehow- this person is suddenly a little more appealing. The tangible difference is invisible to the naked eye, but you cant deny that this person is vaguely sexier. This wizard has a weird rule though you can only pay him once. You can’t keep paying giving him money until you’re satisfied. You can only pay him one lump sum up front. How much cash do you give the wizard?",
+		// 	"Q13: Every person you have ever slept with is invited to a banquet where you are the guest of honor. No one will be in attendance except for you, the collection of former lovers, and the catering service. After the meal, you are asked to give a fifteen-minute speech to the assembly. What do you talk about?",
+		// 	"Q14: For reasons that cannot be explained, cats can suddenly read at a twelfth-grade level. They cant talk and they cant write, but they can read silently and comprehend the text. Many cats love this new skill, because they now have something to do all day while they lay around the house; however, a few cats become depressed, because reading forces them to realize the limitations of their existence (not to mention utter frustration of being unable to express themselves). This being the case, do you this the average cat would enjoy Garfield, or would cats find the cartoon to be an insulting caricature?",
+		// 	"Q15: You have a brain tumor. Though there is no discomfort at the moment, this tumor would unquestionably kill you in six months. However, your life can (and will) be saved by an operation; the only downside is there will be a brutal incision to your frontal lobe. After the surgery, you will be significantly less intelligent. You will be a fully functioning adult, but you will be less logical, you will have a terrible memory, and you will have little ability to understand complex concepts of difficult ideas. The surgery is in two weeks. How do you spend the next fourteen days?",
+		// 	"Q16: Someone builds an optical portal that allows you to see a vision of your own life in the future (it is essentially a crystal ball that shows you a randomly selected image of what your life will be like in twenty years). You can only see into this portal for thirty seconds. When you peer into the crystal, you see yourself in a living room, two decades older than you are today. You are watching Canadian football game, and you are extremely happy. You are wearing a CFL jersey. You chair is surrounded by CFL books and magazines that promote the Canadian Football League, and there are CFL pennants covering your walls. You are alone in the room, but you are gleefully muttering about historical moments in Canadian football history. It becomes clear that for some unknown reason you have become obsessed with Canadian football. And this future is static and absolute, no matter what you do, this future will happen. The optical portal is never wrong. This destiny cannot be changed. The next day, you are flipping through television channels and randomly come across a pre-season CFL game between the Toronto Argonauts and the Saskatchewan Roughriders. Knowing your inevitable future, do you now watch it?",
+		// 	"Q17: You are sitting in an empty bar (in a town youve never before visited), drinking Bacardi with a soft-spoken acquaintance you barely know. After an hour, a third individual walks into the tavern and sits by himself, and you ask your acquaintance who the new man is. Be careful of that guy, you are told. He is a man with a past. A few minutes later, a fourth person enters the bar; he also sits alone. You ask your acquaintance who this new individual is. Be careful of that guy too, he says. He is a man with no past. Which of these two people do you trust less?",
+		// 	"Q18: You have won a prize. The prize has two options, and you can choose either (but not both). The first option is a year in Europe with a monthly stipend of $2,000. The second option is ten minutes on the moon. Which option do you select?",
+		// 	"Q19: Your best friend is taking a nap on the floor of your living room. Suddenly, you are faced with a bizarre existential problem: This friend is going to die unless you kick them (as hard as you can) in the rib cage. If you don’t kick them while they slumber, they will never wake up. However, you can never explain this to your friend; if you later inform them that you did this to save their life, they will also die from that. So you have to kick a sleeping friend in the ribs, and you can’t tell them why. Since you cannot tell your friend the truth, what excuse will you fabricate to explain this (seemingly inexplicable) attack?",
+		// 	"Q20: For whatever the reason, two unauthorized movies are made about your life. The first is an independently released documentary, primarily comprised of interviews with people who know you and bootleg footage from your actual life. Critics are describing the documentary as brutally honest and relentlessly fair. Meanwhile, Columbia Tri-Star has produced a big-budget biopic about your life, casting major Hollywood stars as you and all your acquaintances; though the movie is based on actual events, screenwriters have taken some liberties with the facts. Critics are split on the artistic merits of this fictionalized account, but audiences love it. Which film would you be most interested in seeing?",
+		// 	"Q21: Imagine you could go back to the age of five and relive the rest of your life, knowing everything you know now. You will re-experience your entire adolescence with both the cognitive ability of an adult and the memories of everything you’ve learned from having lived your life previously. Would you lose your virginity earlier or later than you did the first time around (and by how many years)?",
+		// 	"Q22: You work in an office. Generally, you are popular with your co-workers. However, you discover that there are currently two rumors circulating in the office gossip mill, and both involve you. The first rumor is that you got drunk at the office holiday party and had sex with one of your married coworkers. This rumor is completely true, but most people don’t believe it. The second rumor is that you have been stealing hundreds of dollars of office supplies (and then selling them to cover a gambling debt). This rumor is completely false, but virtually everyone assumes it’s factual. Which of these two rumors is most troubling to you?",
+		// 	"Q23: Consider this possibility: a) Think about the deceased TV star John Ritter. b) Now, pretend Ritter has never become famous. Pretend he was never affected by the trappings of fame, and try to imagine what his personality would have been like. c) Now, imagine that this person the unfamous John Ritter is a character in a situation comedy. d) Now, you are also a character in this sitcom, and the unfamous John Ritter character is your sitcom father. e) However, this sitcom is actually your real life. In other words, you are living inside a sitcom: Everything about your life is a construction, featuring the unfamous John Ritter playing himself (in the role of the TV father). But this is not a sitcom. This is your real life. How would you feel about this?"
+		// ]
+
+		// let ques = document.getElementById("ques");
+
+		// function generateQ () {
+		// 	ques.innerHTML = sentences[Math.floor(Math.random() * sentences.length)];
+		// }
 
 	</script>
 
